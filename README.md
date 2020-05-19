@@ -3,11 +3,11 @@
 
 ## APP para o cálculo de IMC canino, baseado no IMC humano.
 
-- [Descrição](#Descrição do APP)
+- [Descrição](#Descrição)
 - [Bibliografia/Agradecimento](#Bibliografia)
 
 <!-- ABOUT THE PROJECT -->
-## Descrição do APP
+## Descrição
  - Escrever a descrição do aplicativo.
 
 ## Bibliografia
