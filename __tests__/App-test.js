@@ -19,14 +19,13 @@ it('renders correctly', () => {
 /**
  * 
  * Condição                   IMC
- * abaixo do peso       abaixo de 18,5
- * peso normal          entre 18,5 e 25
- * acima do peso        entre 25 e 30
- * Obeso                acima de 30
+ * abaixo do peso       abaixo de 11.7
+ * peso normal          entre 11.7 e abaixo de 15
+ * acima do peso        entre 15 e abaixo 18.6
+ * Obeso                acima de 18.6
  *
 */
 describe('Teste do Model para cálculo do imc canino.', ()=>{
-
   /*
    *Porte do cão:
    *  0 => pequeno
@@ -42,21 +41,32 @@ describe('Teste do Model para cálculo do imc canino.', ()=>{
     expect(imc.imc_calculator(60, 0, 1)).toEqual('Os valores de peso e altura devem ser positivos e maior que zero.')
     expect(imc.imc_calculator(0, 0, 2)).toEqual('Os valores de peso e altura devem ser positivos e maior que zero.')
   
-    //abaixo de 18.5
-    //porte médio
-    expect(imc.imc_calculator(13,0.9, 1)).toEqual('Abaixo do peso')
-  
-    //entre 18.5 e 25
-    //porte grande
-    expect(imc.imc_calculator(28,1.2, 2)).toEqual('Peso normal')
-  
-    //entre 25 e 30
-    //porte pequeno
-    expect(imc.imc_calculator(45,1.3, 0)).toEqual('Acima do peso')
-  
-    //acima de 30
-    //porte médio
-    expect(imc.imc_calculator(25,0.8, 1)).toEqual('Obeso')
+    //peso < 18.5
+    //porte médio (peso:10-25kg)
+    expect(imc.imc_calculator(15,1.2,1)).toEqual('Abaixo do peso')
+    // peso>=11.7 e < 15
+    //porte medio (peso:10-25kg)
+    expect(imc.imc_calculator(18,1.1,1)).toEqual('Peso normal')
+    //peso>=15 e <18.6
+    //porte médio (peso:10-25kg)
+    expect(imc.imc_calculator(22,1.2,1)).toEqual('Acima do peso')
+    //peso>=18.6
+    //porte médio (peso:10-25kg)
+    expect(imc.imc_calculator(25,1.1,1)).toEqual('Obeso')
+
+    //abaixo de 11.7
+    //porte pequeno (peso:1-10kg)
+    expect(imc.imc_calculator(9,1,0)).toEqual('Abaixo do peso')
+    // peso>=11.7 e < 15
+    //porte grande (peso:>25kg)
+    expect(imc.imc_calculator(35,1.4,2)).toEqual('Peso normal')
+    //peso>=15 e <18.6
+    //porte pequeno(peso:1-10kg)
+    expect(imc.imc_calculator(8,0.75,0)).toEqual('Acima do peso')
+    //peso>=18.6
+    //porte grande(peso:>25kg)
+    expect(imc.imc_calculator(48,1.3,2)).toEqual('Obeso')
+
   })
 
 })
