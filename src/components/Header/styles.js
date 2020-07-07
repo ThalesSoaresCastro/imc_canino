@@ -9,4 +9,5 @@ export const Container = styled.View`
     alignItems:"center"; 
     justifyContent:"center"; 
     backgroundColor:"white";
+    elevation:0,
 `;

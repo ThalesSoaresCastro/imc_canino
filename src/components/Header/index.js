@@ -9,7 +9,7 @@ import { View, Dimensions, StyleSheet } from 'react-native';
 export default function Header(){
     return(
         <View style={styles.viewPrincipal}>
-            <Lottie resizeMode="contain" autoSize source={doghappy} autoPlay loop={false}/>
+            <Lottie resizeMode="contain" autoSize source={doghappy} autoPlay loop={false} style={{elevation:0,}}/>
         </View>
     );
 }
@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         alignItems:"center", 
         justifyContent:"center", 
+        marginTop:80,
+        elevation:0,
+
         //backgroundColor:'white'
     }
 });
